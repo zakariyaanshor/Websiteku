@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Nama Siswa</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="nav">
+        <div class="brand">
+          <div class="logo">NS</div>
+          <h1>Nama Siswa</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#about" class="active">Tentang</a></li>
+            <li><a href="#contact">Kontak</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Bagian Tentang -->
+    <section id="about" class="about-section">
+      <div class="about-card">
+        <div class="about-text">
+          <h2>Tentang Saya</h2>
+          <p>Saya adalah siswa SMK jurusan Teknik Jaringan Komputer dan Telekomunikasi. 
+            Saya belajar dasar pembuatan website menggunakan HTML dan CSS, 
+            serta mengembangkan portfolio pribadi sederhana ini.</p>
+
+          <h3>Keterampilan</h3>
+          <ul class="skills">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Responsive Design</li>
+          </ul>
+        </div>
+        <div class="about-photo">
+          <img src="https://via.placeholder.com/300x300" alt="Foto Profil">
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Kontak -->
+    <section id="contact" class="contact-section">
+      <h2>Kontak</h2>
+      <p>Jika ingin menghubungi saya, silakan kirim pesan melalui formulir di bawah.</p>
+
+      <form onsubmit="sendWA(event)">
+        <label>Nama:</label>
+        <input type="text" id="nama" placeholder="Masukkan nama" required>
+
+        <label>Pesan:</label>
+        <textarea id="pesan" placeholder="Tulis pesan..." required></textarea>
+
+        <button type="submit">Kirim ke WhatsApp</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> Nama Siswa - Portfolio Pribadi</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function sendWA(e) {
+      e.preventDefault();
+      const nama = document.getElementById("nama").value;
+      const pesan = document.getElementById("pesan").value;
+      const noWA = "6281234567890"; // ganti nomor WA
+
+      const url = `https://wa.me/${noWA}?text=Halo,%20saya%20${nama}.%0A${pesan}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
