@@ -1,83 +1,253 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Nama Siswa</title>
-  <link rel="stylesheet" href="styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dede | Portfolio Pelajar TKJ</title>
+    <!-- Memuat Tailwind CSS untuk styling yang cepat dan profesional -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Konfigurasi Font dan Warna Monokrom -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#000000',
+                        'primary-light': '#FFFFFF',
+                        'accent-gray': '#333333',
+                        'bg-light': '#F7F7F7', // Abu-abu sangat terang untuk latar belakang bagian
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'], // Font profesional
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Mengatur scroll behavior agar smooth saat navigasi */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Styling untuk section agar ada padding vertikal */
+        section {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        /* Custom styling untuk tombol agar lebih tegas */
+        .btn-primary {
+            @apply inline-block px-8 py-3 text-lg font-semibold tracking-wider uppercase transition duration-300 rounded-lg shadow-xl;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div class="container">
-    <header>
-      <div class="nav">
-        <div class="brand">
-          <div class="logo">NS</div>
-          <h1>Nama Siswa</h1>
-        </div>
-        <nav>
-          <ul>
-            <li><a href="#about" class="active">Tentang</a></li>
-            <li><a href="#contact">Kontak</a></li>
-          </ul>
+<body class="font-sans text-accent-gray bg-primary-light antialiased">
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-10 bg-primary-light shadow-md">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+            <!-- Logo/Nama -->
+            <a href="#hero" class="text-2xl font-bold text-primary-dark tracking-widest">DEDE.</a>
+            
+            <!-- Menu Navigasi (Untuk Desktop) -->
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-primary-dark transition duration-150">Tentang Saya</a>
+                <a href="#education" class="hover:text-primary-dark transition duration-150">Pendidikan</a>
+                <a href="#portfolio" class="hover:text-primary-dark transition duration-150">Proyek</a>
+                <a href="#contact" class="hover:text-primary-dark transition duration-150">Kontak</a>
+            </div>
+
+            <!-- Tombol Menu Mobile (Placeholder - tidak fungsional di HTML file tunggal ini, tapi penting untuk UI) -->
+            <button class="md:hidden text-primary-dark focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
         </nav>
-      </div>
     </header>
 
-    <!-- Bagian Tentang -->
-    <section id="about" class="about-section">
-      <div class="about-card">
-        <div class="about-text">
-          <h2>Tentang Saya</h2>
-          <p>Saya adalah siswa SMK jurusan Teknik Jaringan Komputer dan Telekomunikasi. 
-            Saya belajar dasar pembuatan website menggunakan HTML dan CSS, 
-            serta mengembangkan portfolio pribadi sederhana ini.</p>
+    <main class="pt-16">
+        
+        <!-- 1. HERO SECTION -->
+        <section id="hero" class="h-screen flex items-center justify-center text-center bg-primary-light">
+            <div class="max-w-4xl px-4">
+                <p class="text-xl sm:text-2xl font-light mb-4 text-accent-gray/80 animate-fadeInUp">Halo, Saya</p>
+                <h1 class="text-5xl sm:text-7xl lg:text-8xl font-extrabold text-primary-dark uppercase mb-6 leading-tight">
+                    DEDE
+                </h1>
+                <h2 class="text-2xl sm:text-3xl font-medium text-accent-gray mb-10">
+                    Pelajar TKJ Siap Menciptakan Solusi Digital.
+                </h2>
+                <a href="#portfolio" class="btn-primary bg-primary-dark text-primary-light hover:bg-primary-light hover:text-primary-dark hover:border-primary-dark border-2 border-primary-dark">
+                    Lihat Proyek Saya
+                </a>
+            </div>
+        </section>
 
-          <h3>Keterampilan</h3>
-          <ul class="skills">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Responsive Design</li>
-          </ul>
+        <!-- 2. TENTANG SAYA (ABOUT) -->
+        <section id="about" class="bg-bg-light border-y border-gray-200">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-primary-dark mb-12 text-center border-b-4 border-primary-dark inline-block pb-1">TENTANG SAYA</h2>
+                
+                <div class="space-y-8 text-center sm:text-left">
+                    <p class="text-lg leading-relaxed">
+                        Saya Dede, seorang pelajar aktif di **SMK Dewi Sartika** dengan fokus keahlian di **Jurusan Teknik Komputer dan Jaringan (TKJ)**. Saya memiliki minat besar dalam dunia teknologi, mulai dari infrastruktur jaringan hingga pengembangan perangkat lunak sederhana.
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+                        <div class="p-6 bg-primary-light rounded-xl shadow-lg border border-gray-200">
+                            <h3 class="text-xl font-semibold text-primary-dark mb-3">Networking</h3>
+                            <p class="text-sm">Konfigurasi dasar Router dan Switch (Mikrotik/Cisco), pemahaman TCP/IP dan troubleshooting jaringan.</p>
+                        </div>
+                        <div class="p-6 bg-primary-light rounded-xl shadow-lg border border-gray-200">
+                            <h3 class="text-xl font-semibold text-primary-dark mb-3">Web Development</h3>
+                            <p class="text-sm">Mampu membuat *layout* dan *styling* dasar menggunakan HTML, CSS, dan sedikit JavaScript.</p>
+                        </div>
+                        <div class="p-6 bg-primary-light rounded-xl shadow-lg border border-gray-200">
+                            <h3 class="text-xl font-semibold text-primary-dark mb-3">Hardware & OS</h3>
+                            <p class="text-sm">Merakit, menginstalasi sistem operasi (Windows/Linux), dan memelihara komponen komputer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. RIWAYAT PENDIDIKAN (EDUCATION) -->
+        <section id="education">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-primary-dark mb-12 text-center border-b-4 border-primary-dark inline-block pb-1">RIWAYAT PENDIDIKAN</h2>
+                
+                <div class="relative max-w-lg mx-auto">
+                    <!-- Garis Linimasa Vertikal -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-300"></div>
+                    
+                    <!-- Item Pendidikan 1 (Terbaru) -->
+                    <div class="mb-8 flex justify-between items-center w-full">
+                        <div class="w-2/5">
+                            <div class="text-right">
+                                <p class="text-lg font-semibold text-primary-dark">2023 - Sekarang</p>
+                            </div>
+                        </div>
+                        <div class="z-10 flex items-center order-1 bg-primary-dark shadow-xl w-6 h-6 rounded-full"></div>
+                        <div class="w-2/5 p-4 bg-bg-light rounded-lg shadow-md border border-gray-200">
+                            <h3 class="text-xl font-bold text-primary-dark">SMK Dewi Sartika</h3>
+                            <p class="text-sm text-accent-gray">Jurusan Teknik Komputer dan Jaringan (TKJ)</p>
+                        </div>
+                    </div>
+
+                    <!-- Item Pendidikan 2 (Sebelumnya) -->
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="w-2/5 p-4 bg-bg-light rounded-lg shadow-md border border-gray-200 order-1">
+                            <h3 class="text-xl font-bold text-primary-dark">SMP</h3>
+                            <p class="text-sm text-accent-gray">Lulusan SMP</p>
+                        </div>
+                        <div class="z-10 flex items-center order-1 bg-primary-dark shadow-xl w-6 h-6 rounded-full"></div>
+                        <div class="w-2/5">
+                            <div class="text-left">
+                                <p class="text-lg font-semibold text-primary-dark">2020 - 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item Pendidikan 3 (Tambahan) -->
+                    <div class="mb-8 flex justify-between items-center w-full">
+                        <div class="w-2/5">
+                            <div class="text-right">
+                                <p class="text-lg font-semibold text-primary-dark">2014 - 2020</p>
+                            </div>
+                        </div>
+                        <div class="z-10 flex items-center order-1 bg-primary-dark shadow-xl w-6 h-6 rounded-full"></div>
+                        <div class="w-2/5 p-4 bg-bg-light rounded-lg shadow-md border border-gray-200">
+                            <h3 class="text-xl font-bold text-primary-dark">SD</h3>
+                            <p class="text-sm text-accent-gray">Lulusan Sekolah Dasar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. PORTOFOLIO / PROYEK -->
+        <section id="portfolio" class="bg-bg-light border-y border-gray-200">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-primary-dark mb-12 text-center border-b-4 border-primary-dark inline-block pb-1">PROYEK PILIHAN SAYA</h2>
+                <p class="text-center text-lg mb-10">Berikut adalah beberapa proyek yang menunjukkan kemampuan saya di bidang TKJ dan Web Dasar.</p>
+
+                <!-- Grid Proyek (3 Kolom di Desktop, 1 Kolom di Mobile) -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    
+                    <!-- Proyek 1: Jaringan -->
+                    <div class="bg-primary-light rounded-xl overflow-hidden shadow-2xl border border-gray-300">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center text-primary-dark font-bold text-xl uppercase">
+                            
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 text-primary-dark">Simulasi Jaringan VLAN</h3>
+                            <p class="text-sm mb-4">Menerapkan konsep VLAN menggunakan Packet Tracer untuk segmentasi jaringan sekolah.</p>
+                            <a href="#" class="text-sm font-medium text-primary-dark hover:underline">LIHAT DETAIL &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Proyek 2: Web Dev -->
+                    <div class="bg-primary-light rounded-xl overflow-hidden shadow-2xl border border-gray-300">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center text-primary-dark font-bold text-xl uppercase">
+                            
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 text-primary-dark">Website Profil Sederhana</h3>
+                            <p class="text-sm mb-4">Membuat halaman profil responsif menggunakan HTML dan Tailwind CSS (atau Bootstrap dasar).</p>
+                            <a href="#" class="text-sm font-medium text-primary-dark hover:underline">LIHAT DETAIL &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Proyek 3: Hardware/OS -->
+                    <div class="bg-primary-light rounded-xl overflow-hidden shadow-2xl border border-gray-300">
+                        <div class="h-48 bg-gray-200 flex items-center justify-center text-primary-dark font-bold text-xl uppercase">
+                            [Image of a computer motherboard]
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2 text-primary-dark">Instalasi Dual-Boot OS</h3>
+                            <p class="text-sm mb-4">Panduan dan dokumentasi proses instalasi dual-boot Windows dan Linux pada satu perangkat.</p>
+                            <a href="#" class="text-sm font-medium text-primary-dark hover:underline">LIHAT DETAIL &rarr;</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. KONTAK -->
+        <section id="contact">
+            <div class="max-w-xl mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold text-primary-dark mb-12 border-b-4 border-primary-dark inline-block pb-1">MARI TERHUBUNG</h2>
+                <p class="text-lg mb-8">
+                    Tertarik dengan proyek saya atau ingin berdiskusi lebih lanjut? Silakan hubungi saya melalui formulir di bawah ini.
+                </p>
+
+                <!-- Formulir Kontak Sederhana (Hanya Tampilan) -->
+                <form class="space-y-6">
+                    <div>
+                        <input type="text" placeholder="Nama Anda" class="w-full p-3 border-2 border-accent-gray/50 focus:border-primary-dark outline-none transition duration-150 rounded-lg bg-primary-light text-primary-dark" required>
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Email Anda" class="w-full p-3 border-2 border-accent-gray/50 focus:border-primary-dark outline-none transition duration-150 rounded-lg bg-primary-light text-primary-dark" required>
+                    </div>
+                    <div>
+                        <textarea rows="5" placeholder="Pesan Anda" class="w-full p-3 border-2 border-accent-gray/50 focus:border-primary-dark outline-none transition duration-150 rounded-lg bg-primary-light text-primary-dark" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full bg-primary-dark text-primary-light hover:bg-primary-light hover:text-primary-dark hover:border-primary-dark border-2 border-primary-dark">
+                        KIRIM PESAN
+                    </button>
+                </form>
+                
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-primary-dark text-primary-light py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-sm mb-2">&copy; 2025 Dede Portfolio. Hak Cipta Dilindungi.</p>
+            <p class="text-xs text-gray-400">Dibuat dengan semangat minimalis dan profesionalisme.</p>
         </div>
-        <div class="about-photo">
-          <img src="https://via.placeholder.com/300x300" alt="Foto Profil">
-        </div>
-      </div>
-    </section>
-
-    <!-- Bagian Kontak -->
-    <section id="contact" class="contact-section">
-      <h2>Kontak</h2>
-      <p>Jika ingin menghubungi saya, silakan kirim pesan melalui formulir di bawah.</p>
-
-      <form onsubmit="sendWA(event)">
-        <label>Nama:</label>
-        <input type="text" id="nama" placeholder="Masukkan nama" required>
-
-        <label>Pesan:</label>
-        <textarea id="pesan" placeholder="Tulis pesan..." required></textarea>
-
-        <button type="submit">Kirim ke WhatsApp</button>
-      </form>
-    </section>
-
-    <footer>
-      <p>© <span id="year"></span> Nama Siswa - Portfolio Pribadi</p>
     </footer>
-  </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    function sendWA(e) {
-      e.preventDefault();
-      const nama = document.getElementById("nama").value;
-      const pesan = document.getElementById("pesan").value;
-      const noWA = "6281234567890"; // ganti nomor WA
-
-      const url = `https://wa.me/${noWA}?text=Halo,%20saya%20${nama}.%0A${pesan}`;
-      window.open(url, '_blank');
-    }
-  </script>
 </body>
 </html>
